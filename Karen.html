@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!-- script -->
+         <script type="text/javascript">
+            var sexy = function() {
+
+                // thread node div
+                var threadnode = document.getElementById('thread');
+
+                //message content
+                var message = document.getElementById('msg-content').value;
+
+                // sender name
+                var name = document.getElementById('name').value;
+
+                // Pre conditions to check if text fields empty
+                if(message == "") {
+                    alert("Write a message");
+                    return;
+                }
+                if(name == "") {
+                    alert("Write ur name!");
+                    return;
+                }
+                //alert(message);
+                // pre conditions end //
+            
+
+                var STYLE= "background-color:floralwhite;"; //msg background
+                var divnode = document.createElement("div"); //creat divnode
+                
+
+                //name of candidate being added //
+                var nametextHTML = "<span style='color:gray;'><em>" + name + " says:</em></span><br/>";
+                //div node adjustments to properties
+                divnode.className = "thread-msg";
+                divnode.innerHTML = nametextHTML + message;
+                divnode.style="margin:10px;"
+                //divnode adjustments end //
+                
+                //append the div msg element in threadnode
+                threadnode.appendChild(divnode) 
+            }
+
+            var closemsgbox = function() {
+                var node = document.getElementById("msg-box");
+                var nodevis = document.getElementById("msg-box-open");
+                node.style.display = "none";
+                nodevis.style.display = "block";
+
+            }
+
+            var openmsgbox = function() {
+                var node = document.getElementById("msg-box");
+                var nodevis = document.getElementById("msg-box-open");
+                node.style.display = "block";
+                nodevis.style.display = "none";
+            }
+            
+         </script>
+
+        <!-- CSS -->
+         <style type="text/CSS">
+            #thread {
+                background-color:beige;
+                width: 50%; 
+                padding: 5px;
+            }
+
+            .thread-msg {
+                background-color:floralwhite;
+            }
+
+            #msg-box {
+                display: block;
+                left: 0;
+                bottom: 0;
+                position: fixed;
+                width: 75%;
+                background-color:gainsboro;
+                padding: 10px;
+                margin: 30px;
+                border: 3px solid rosybrown;
+            }
+
+            #msg-content {
+                height: 100px;
+            }
+
+            #close-btn {
+                background-color: red;
+                color: white;
+                height: 20px;
+                width: 20px;
+                position:absolute;
+                right: 0;
+                top: 0;
+            }
+
+            #msg-box-open {
+                background-color: red;
+                color: white;
+                height: 20px;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                display: none;
+                padding: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1> Karen's Wall </h1>
+        <div id="thread">
+            
+        </div>
+
+        <hr>
+
+        <div id="msg-box">
+            <form name="msgform" id="msg">
+                <label for="name">Name:
+                <input name="name" type="text" id="name"/></label>
+                <br/>
+                <br/>
+                <textarea id="msg-content" placeholder="type your response here"></textarea>
+                <br/>
+                <button href="#" onclick="sexy(); return false;">Send</button>
+            </form>
+            <button id="close-btn" onclick="closemsgbox(); return false;"><b>X</b></button>
+        </div>
+
+        <div id="msg-box-open" onclick="openmsgbox(); return false;"><b> >>> </b></div>
+    </body>
+</html>
