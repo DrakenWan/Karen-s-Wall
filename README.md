@@ -1,4 +1,6 @@
 # Karens-Wall
+I was just bored and wanted to make something and also find out if I still had the hold over the core languages of web dev.
+
 A simple HTML file with internal jscript and css to post message in a thread. I named it Karen's Wall for some reason...I don't know why.
 I was quite bored and wanted to refresh my html and check if it was still in me to write it from scratch.
 
